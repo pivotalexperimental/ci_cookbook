@@ -1,0 +1,1 @@
+node.default["ci_hostname"]= "hostname-ci"
