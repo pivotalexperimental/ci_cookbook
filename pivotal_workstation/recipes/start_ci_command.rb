@@ -3,6 +3,7 @@ run_unless_marker_file_exists("start_ci_command") do
   template "#{WS_HOME}/start_ci.command" do
     source "start_ci_command.erb"
     owner WS_USER
+    mode 0755
     backup false
   end
   
