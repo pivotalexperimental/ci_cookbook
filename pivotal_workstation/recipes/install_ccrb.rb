@@ -1,3 +1,6 @@
+include_recipe "pivotal_workstation::turn_on_postfix"
+include_recipe "pivotal_workstation::rvm"
+include_recipe "pivotal_workstation::update_gems"
 
 run_unless_marker_file_exists("clone_ccrb") do
   execute "clone ccrb" do
@@ -5,14 +8,18 @@ run_unless_marker_file_exists("clone_ccrb") do
     user WS_USER
   end
   
-  remote_directory "~/.cruise" do
-    source "cruise"
+  execute "create data.version file" do
+    command "echo 2 > #{WS_HOME}/.cruise/data.version"
+    user WS_USER
+  end
+  
+  template "#{WS_HOME}/.cruise/site.css" do
+    source "site.css.erb"
     owner WS_USER
   end
-  # This doesn't work yet just edit the template by hand
-  # template "#{WS_HOME}/.cruise/site_config.rb" do
-  #   source "site_config.erb"
-  #   owner WS_USER
-  #   backup false
-  # end
+  
+  template "#{WS_HOME}/.cruise/site_config.rb" do
+    source "site_config.rb.erb"
+    owner WS_USER
+  end
 end
