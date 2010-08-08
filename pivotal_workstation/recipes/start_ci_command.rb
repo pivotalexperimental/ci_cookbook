@@ -1,3 +1,4 @@
+include_recipe "pivotal_workstation::install_ccrb"
 
 run_unless_marker_file_exists("start_ci_command") do
   template "#{WS_HOME}/start_ci.command" do

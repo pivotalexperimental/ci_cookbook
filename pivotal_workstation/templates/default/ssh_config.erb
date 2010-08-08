@@ -1,0 +1,4 @@
+IdentitiesOnly yes
+Host github.com
+  User git
+  IdentityFile <%= "#{WS_HOME}/.ssh/id_github_#{node["ci_hostname"]}" %>
