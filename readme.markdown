@@ -8,12 +8,12 @@ How To Use
 ==========
 This has only been tested on a fresh installation of Snow Leopard with Git and XCode installed.  Please note in an unmodified state this will intentionally be destructive - it uninstalls things we don't need on CI boxes, such as Garage Band.
 
-git clone git://github.com/pivotalexperimental/wschef.git
-git clone git://github.com/pivotalexperimental/ci_cookbook.git
-ln -s ~/ci_cookbook/ ~/wschef/cookbook_links/workstation_cookbook
-cd wschef
-./install_chef.rb
-./run
+	git clone git://github.com/pivotalexperimental/wschef.git
+	git clone git://github.com/pivotalexperimental/ci_cookbook.git
+	ln -s ~/ci_cookbook/ ~/wschef/cookbook_links/workstation_cookbook
+	cd wschef
+	./install_chef.rb
+	./run
 
 Etc
 ===
