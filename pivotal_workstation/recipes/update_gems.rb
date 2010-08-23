@@ -7,7 +7,7 @@ script "update rubygems" do
   code script_with_rvm(node["rvm"]["default_ruby"], "gem update")
 end
 
-["rake", "bundler", "mongrel"]. each do |gem_name|
+["rake", "bundler", "mongrel", "SystemTimer"]. each do |gem_name|
   script "install gem #{gem_name}" do
     interpreter "bash"
     cwd WS_HOME
